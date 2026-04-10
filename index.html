@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LinguaLift</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero-card">
+      <div class="hero-copy">
+        <p class="eyebrow">Language Learning</p>
+        <h1>LinguaLift</h1>
+        <p>Learn with voice or text in multiple languages. Practice phrases, hear pronunciations, and build confidence with a clean, interactive interface.</p>
+        <div class="hero-badges">
+          <span>Voice + Text</span>
+          <span>5 languages</span>
+          <span>Interactive lessons</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <button class="btn btn-primary" id="startTextMode">Start Text Practice</button>
+        <button class="btn btn-secondary" id="startVoiceMode">Start Voice Practice</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel" id="modePanel">
+        <div class="panel-heading">
+          <h2>Choose your practice mode</h2>
+          <p>Select a language and try either typed text or voice interaction.</p>
+        </div>
+
+        <div class="controls-grid">
+          <div class="control-card">
+            <label for="fromLanguage">From Language</label>
+            <select id="fromLanguage"></select>
+          </div>
+          <div class="control-card">
+            <label for="toLanguage">To Language</label>
+            <select id="toLanguage"></select>
+          </div>
+          <div class="control-card">
+            <label for="phraseCategory">Phrase Set</label>
+            <select id="phraseCategory">
+              <option value="greetings">Greetings</option>
+              <option value="travel">Travel</option>
+              <option value="food">Food & Dining</option>
+              <option value="daily">Daily Life</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mode-tabs" role="tablist" aria-label="Practice mode tabs">
+          <button class="tab active" data-mode="text" id="tabText">Text Practice</button>
+          <button class="tab" data-mode="voice" id="tabVoice">Voice Practice</button>
+        </div>
+
+        <div class="practice-panel" id="textPractice">
+          <div class="text-card">
+            <div class="input-header">
+              <p class="input-label">Write your own sentence</p>
+              <p class="input-help">Type anything you want and press Translate. The app will try to detect the source language automatically.</p>
+            </div>
+            <textarea id="userText" placeholder="Type your sentence here..."></textarea>
+          </div>
+          <p class="hint-text">Custom text uses API plus offline phrase support. If a sentence is too unusual or unsupported, the app explains that translation is unavailable.</p>
+          <div class="button-row">
+            <button class="btn btn-primary" id="translateText">Translate & Speak</button>
+            <button class="btn btn-ghost" id="pickPhrase">Suggest a Phrase</button>
+          </div>
+        </div>
+
+        <div class="practice-panel hidden" id="voicePractice">
+          <p class="voice-info">Press start, speak clearly, then listen to the translation or repeat it back.</p>
+          <div class="voice-buttons">
+            <button class="btn btn-primary" id="startVoice">Start Listening</button>
+            <button class="btn btn-secondary" id="stopVoice">Stop</button>
+          </div>
+          <div class="voice-output">
+            <p><strong>Detected text:</strong></p>
+            <div class="result-box" id="detectedText">No speech detected yet.</div>
+          </div>
+        </div>
+
+        <div class="output-panel">
+          <h3>Learning feedback</h3>
+          <div class="result-card">
+            <p><strong>Phrase:</strong> <span id="displayPhrase">Choose a mode and language.</span></p>
+            <p><strong>Translation:</strong> <span id="displayTranslation">Ready when you are.</span></p>
+          </div>
+          <div class="result-card" id="pronunciationCard">
+            <p><strong>Pronunciation help</strong></p>
+            <p id="pronunciationText">Use the play button to hear the phrase in the target language.</p>
+            <button class="btn btn-primary" id="playPronunciation">Play Target Pronunciation</button>
+          </div>
+          <div class="result-card" id="lessonCard">
+            <p><strong>Lesson tip</strong></p>
+            <p id="lessonTipText">Select a phrase or speak into the voice practice mode to get started.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-grid">
+        <div class="feature-card">
+          <h3>Voice-powered practice</h3>
+          <p>Use your voice to speak sentences, get automatic text capture, and hear translations as spoken audio.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Text learning</h3>
+          <p>Type phrases for immediate translation and pronunciation help. Ideal for vocabulary drills and writing practice.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Multiple languages</h3>
+          <p>Practice with English, Spanish, French, German, and Japanese to build confidence across real world conversations.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <p>Designed to be a fast, browser-based language learning tool.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
